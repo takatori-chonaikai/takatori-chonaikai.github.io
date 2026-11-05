@@ -332,6 +332,29 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- 記事5: 班長定例会 -->
+                    <article class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm hover:shadow transition">
+                        <div class="flex items-start gap-4">
+                            <div class="hidden sm:flex flex-col items-center justify-center bg-violet-100 text-violet-900 rounded-xl w-16 h-16 shrink-0 font-bold">
+                                <span class="text-xs">毎月</span>
+                                <span class="text-xl leading-none">金曜</span>
+                                <span class="text-[10px] text-slate-600">定例会</span>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center gap-2 mb-2 flex-wrap">
+                                    <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-violet-100 text-violet-800">班長定例会</span>
+                                    <span class="text-xs text-slate-600 font-semibold">19:00〜</span>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-lg mb-2">
+                                    班長定例会を行います
+                                </h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    各班の班長を対象に、町内会の運営や行事について話し合います。会場は追浜小学校体育館、毎月第1土曜日の翌週金曜日19:00からです（1月・8月を除く）。次回は<span id="n-hancho">11月13日（金）</span>です。
+                                </p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -506,7 +529,7 @@
                             </div>
                             <div>
                                 <h4 class="text-base font-bold text-slate-900">班長定例会</h4>
-                                <p class="text-xs text-slate-600">毎月第1土曜日の翌週金曜日 19:00〜、追浜小学校体育館で開催します。各班の班長を対象に、町内会の運営や行事について話し合います。</p>
+                                <p class="text-xs text-slate-600">毎月第1土曜日の翌週金曜日（1月・8月を除く）19:00〜、追浜小学校体育館で開催します。各班の班長を対象に、町内会の運営や行事について話し合います。</p>
                             </div>
                         </div>
                     </div>
@@ -833,12 +856,14 @@
                 var hTotal = today.getMonth() + hi;
                 var hYear = today.getFullYear() + Math.floor(hTotal / 12);
                 var hMonth = hTotal % 12;
+                if (hMonth === 0 || hMonth === 7) continue;
                 var firstSat = nthWeekday(hYear, hMonth, 6, 1);
                 var hCand = new Date(hYear, hMonth, firstSat.getDate() + 6);
                 if (hCand >= today) hancho = hCand;
             }
             if (hancho) {
                 setText('d-hancho', fmt(hancho) + '19:00〜');
+                setText('n-hancho', fmt(hancho));
             }
 
             // 町内一斉清掃：毎月第3日曜日（1月・8月を除く）
