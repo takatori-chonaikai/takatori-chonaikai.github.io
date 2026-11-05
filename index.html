@@ -244,22 +244,21 @@
                     <article class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm hover:shadow transition">
                         <div class="flex items-start gap-4">
                             <div class="hidden sm:flex flex-col items-center justify-center bg-emerald-100 text-emerald-900 rounded-xl w-16 h-16 shrink-0 font-bold">
-                                <span class="text-xs">11月</span>
-                                <span class="text-xl leading-none">05</span>
-                                <span class="text-[10px] text-slate-600">（木）</span>
+                                <span class="text-xs">毎月</span>
+                                <span class="text-xl leading-none">5日</span>
+                                <span class="text-[10px] text-slate-600">配布</span>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex items-center gap-2 mb-2 flex-wrap">
                                     <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800">広報</span>
-                                    <span class="text-xs text-slate-500 font-mono sm:hidden">11月5日（木）</span>
+                                    <span class="text-xs text-slate-500 font-mono sm:hidden">毎月5日</span>
                                 </div>
                                 <h4 class="font-bold text-slate-800 text-lg mb-2">
                                     広報を配布します
                                 </h4>
                                 <p class="text-slate-600 text-sm leading-relaxed">
                                     「広報よこすか」「県のたより」などを各戸へお届けします。<br>
-                                    配布は毎月5日（1月を除く）です。<br>
-                                    回覧板が届いたら目を通して次のお宅へお回しください。
+                                    配布は毎月5日（1月を除く）です。次回は<span id="n-haifu">12月5日（土）</span>です。
                                 </p>
                             </div>
                         </div>
@@ -315,9 +314,9 @@
                     <article class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm hover:shadow transition">
                         <div class="flex items-start gap-4">
                             <div class="hidden sm:flex flex-col items-center justify-center bg-amber-100 text-amber-900 rounded-xl w-16 h-16 shrink-0 font-bold">
-                                <span class="text-xs">12月</span>
-                                <span class="text-xl leading-none">20</span>
-                                <span class="text-[10px] text-slate-600">（日）</span>
+                                <span class="text-xs">毎月第3</span>
+                                <span class="text-xl leading-none">日曜</span>
+                                <span class="text-[10px] text-slate-600">清掃</span>
                             </div>
                             <div class="flex-grow">
                                 <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -325,10 +324,10 @@
                                     <span class="text-xs text-slate-600 font-semibold">9:00〜10:00</span>
                                 </div>
                                 <h4 class="font-bold text-slate-800 text-lg mb-2">
-                                    12月20日（日）町内一斉清掃を行います
+                                    町内一斉清掃を行います
                                 </h4>
                                 <p class="text-slate-600 text-sm leading-relaxed">
-                                    次回の一斉清掃です。毎月第3日曜日の実施です（1月・8月を除く）。軍手やごみ袋などは各自ご用意のうえ、無理のない範囲でご参加ください。
+                                    次回は<span id="n-cleaning">12月20日（日）</span> 9:00〜10:00です。毎月第3日曜日の実施です（1月・8月を除く）。軍手やごみ袋などは各自ご用意のうえ、無理のない範囲でご参加ください。
                                 </p>
                             </div>
                         </div>
@@ -819,6 +818,7 @@
                 setText('d-haifu', fmt(haifu) + 'ごろ');
                 setText('d-haifu-note', fmt(haifu));
                 setText('y-haifu', fmt(haifu));
+                setText('n-haifu', fmt(haifu));
             }
 
             // 防犯パトロール：毎月第2・第4土曜日 16:00
@@ -847,6 +847,7 @@
             if (cleaning) {
                 setText('d-cleaning', fmt(cleaning));
                 setText('y-cleaning', fmt(cleaning));
+                setText('n-cleaning', fmt(cleaning));
             }
 
             // 自主防災訓練：2026年11月15日の一回限り。過ぎたら次の日付は作らない
