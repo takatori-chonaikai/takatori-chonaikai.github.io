@@ -671,6 +671,7 @@
                                 Googleマップを開く <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
+                        <p class="text-[11px] text-slate-400 text-center mt-3">アクセス数：<span id="visit-count">―</span></p>
                     </div>
                 </div>
             </div>
@@ -713,6 +714,19 @@
     </footer>
     <!-- JavaScript ロジック -->
     <script>
+        // アクセスカウンタ（会館マップの下に小さく表示。取得できないときは「―」のまま）
+        (function () {
+            fetch('https://abacus.jasoncameron.dev/hit/takatori-chonaikai/homepage')
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    var el = document.getElementById('visit-count');
+                    if (el && d && typeof d.value === 'number') {
+                        el.textContent = d.value.toLocaleString('ja-JP');
+                    }
+                })
+                .catch(function () { /* 表示は「―」のまま */ });
+        })();
+
         // 文字サイズ変更
         function changeFontSize(size) {
             const html = document.documentElement;
